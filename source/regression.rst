@@ -221,6 +221,60 @@ barn-owl provides algorithms for the purpose of regression with endpoints `/v1/r
          This score represents coefficient :math:`R^2=1-\frac{\sum_{i}(y_i - f_i)^2}{\sum_{i}(y_i -\overline{y})^2}` ,
          where :math:`y_i,f_i,\overline{y}` is training data, predicted data and mean of training data respectively.
 
+`Bayesian Regression`
+---------------------
+
+.. class:: regression/bayesian/
+
+   Bayesian Regression based on prior probability with gammma function.
+   In addition to common parameters, you can use additional parameters as follows,
+
+   Parameters:
+
+      features : list
+         A features list used for fitting.
+
+      regularization_rate: float(default=1e-06)
+         Gamma rate parameter(inverse of scale parameter) of regularization term.
+
+      regularization_shape: float(default=1e-06)
+         Gamma shape factor of regularization term.
+
+      noise_rate: float(default=1e-06)
+         Gamma rate parameter(inverse of scale parameter) of noise term.
+
+      noise_shape: float(default=1e-06)
+         Gamma shape factor of noise term.
+
+   Attributes:
+
+      data : list of tuples
+         Predicted list of tuples consisting of 'id', 'prediction' and 'target'.
+
+         | 'id' : user id,
+         | 'prediction' :predicted value by using the model,
+         | 'target' : target value of training data. If 'train_data' is a dataset for evaluation, the value is dumy.
+
+      features : list
+         A features list used for fitting.
+
+      coefficient : list
+         A coefficients list associated with each features element.
+
+      intercept : int
+         The value of intercept term.
+
+      target : string
+         Target column's name.
+
+      score : int
+         This score represents coefficient :math:`R^2=1-\frac{\sum_{i}(y_i - f_i)^2}{\sum_{i}(y_i -\overline{y})^2}` ,
+         where :math:`y_i,f_i,\overline{y}` is training data, predicted data and mean of training data respectively.
+
+      regularization: float
+         Used egularization parameter of Lasso term.
+
+
 `Bagging Regression`
 --------------------
 
